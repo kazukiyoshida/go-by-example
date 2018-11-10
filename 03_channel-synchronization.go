@@ -17,7 +17,7 @@ func main() {
   done := make(chan bool, 1)
   go worker(done)
 
-  // done channel は他のgoroutineへの
-  // 通知機能を果たす
+  // <-done で、doneから通知が来るまでbolckされる
+  // つまり、done channel は他のgoroutineへの通知機能を果たす
   <-done
 }
